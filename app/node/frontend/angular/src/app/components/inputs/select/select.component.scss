@@ -1,0 +1,144 @@
+@import '../../../../assets/styles/variables.scss';
+
+* {
+  background-color: transparent;
+}
+
+.error {
+  color: $color-red !important;
+  outline: none;
+  border-color: $color-red !important;
+}
+
+.hide {
+  display: none;
+}
+
+.input-container {
+  // margin-top: 0.1rem;
+  height: max-content;
+  width: 17rem;
+  min-width: 17rem;
+  max-width: 17rem;
+  overflow-x: hidden;
+
+  .display-selected-values {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transform: translate(1rem, 150%);
+    background-color: $color-inputs-background;
+
+    .display-value-selected {
+      display: flex;
+      flex-direction: row;
+      margin: 0.1rem 0.3rem;
+      padding: 0.1rem 0.4rem;
+      background-color: $color-primary;
+      border-radius: 5px;
+      color: white;
+      white-space: nowrap;
+
+      .display-value-selected-close {
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  .label-text {
+    transform: translate(1rem, 0.7rem);
+    width: max-content;
+    font-size: 1rem;
+    width: max-content;
+    padding: 0 2px;
+    background-color: transparent;
+    color: transparent;
+  }
+
+  input {
+    outline: none;
+    border: 2px solid $color-inputs-background;
+    background-color: $color-inputs-background;
+    border-radius: 15px;
+    padding-left: 1rem;
+    margin-top: 0.2rem;
+    height: 2.5rem;
+    width: calc(100% - 1rem);
+    font-size: 1.1rem;
+  }
+
+  .select {
+    padding: 0.5rem 0;
+    background-color: $color-inputs-background;
+    margin-top: 0.5rem;
+    border-radius: 0.3rem;
+    width: 17rem;
+    min-width: 17rem;
+    max-width: 17rem;
+    z-index: 2;
+
+    .values_list {
+      width: auto;
+      max-height: 5rem;
+      overflow-y: auto;
+
+      .List_value_active {
+        background-color: $color-primary;
+        color: white;
+      }
+
+      .list_value {
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color-primary;
+          color: white;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 0.8rem;
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-borders-ash;
+        cursor: pointer !important;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+
+  .message {
+    position: relative;
+    width: 100%;
+    height: 0.8rem;
+    margin: 0.2rem 0 0 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+.input-container-touched {
+  // .label-text {
+  //   background-color: $color-background-secondary;
+  //   color: $color-primary;
+  // }
+
+  input {
+    background-color: $color-background-secondary !important;
+    border-color: $color-primary;
+  }
+}
+
+.hide {
+  display: none;
+}

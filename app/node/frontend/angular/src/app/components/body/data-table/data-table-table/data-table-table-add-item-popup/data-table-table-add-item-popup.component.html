@@ -1,0 +1,47 @@
+<!-- data-table-table-add-item-popup.component.html -->
+<div class="popup {{cssClass}}">
+  <div class="popup-content">
+    <div class="close-model">
+      <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
+        (click)="addItemModelClose()">
+        <path
+          d="M38.124 11.8963C37.3115 11.0838 35.999 11.0838 35.1865 11.8963L24.999 22.063L14.8115 11.8755C13.999 11.063 12.6865 11.063 11.874 11.8755C11.0615 12.688 11.0615 14.0005 11.874 14.813L22.0615 25.0005L11.874 35.188C11.0615 36.0005 11.0615 37.313 11.874 38.1255C12.6865 38.938 13.999 38.938 14.8115 38.1255L24.999 27.938L35.1865 38.1255C35.999 38.938 37.3115 38.938 38.124 38.1255C38.9365 37.313 38.9365 36.0005 38.124 35.188L27.9365 25.0005L38.124 14.813C38.9157 14.0213 38.9157 12.688 38.124 11.8963Z"
+          fill="#6D6D6D" />
+      </svg>
+    </div>
+    <div class="model-body">
+      <h2>Add</h2>
+      <div class="form">
+        <ng-container *ngFor="let input_container of inputs_length">
+          <div class="input-form-row">
+            <div *ngFor="let input of input_container">
+              <component-text-input-box
+                *ngIf="input.type === 'text' || input.type === 'tel' || input.type === 'password' || input.type === 'number'|| input.type === 'date' "
+                [label]="getFormattedPlaceholder(input.placeHolder, input.key)"
+                [placeholder]="getFormattedPlaceholder(input.placeHolder, input.key)" [id]="'create_'+input.key"
+                [type]="input.type" [(value)]="form_data[input.key]" [messageType]="messages[input.key]?.message_type"
+                [message]="messages[input.key]?.message"
+                [has_error]="(messages[input.key]?.message_type == 'error' ? true : false)">
+              </component-text-input-box>
+
+              <app-input-select
+                *ngIf="input.type === 'select' || input.type === 'select_multiple' || input.type === 'select'"
+                [label]="getFormattedPlaceholder(input.placeHolder, input.key)" [select_multiple]="input.multiple"
+                [placeholder]="getFormattedPlaceholder(input.placeHolder, input.key)" [id]="'create_'+input.key"
+                [type]="input.type" [(value)]="form_data[input.key]" [messageType]="messages[input.key]?.message_type"
+                [message]="messages[input.key]?.message" [values_list]="input.list"
+                (valueChanged)="selectValueChange($event)">
+              </app-input-select>
+            </div>
+          </div>
+        </ng-container>
+        <p class="message"> {{messages?.common?.message}}</p>
+        <div class="btn-container">
+          <component-button-submit_btn class="button" [label]="'Done'" [type]="'submit'" (click)="AddItem()">
+          </component-button-submit_btn>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

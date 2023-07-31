@@ -1,0 +1,85 @@
+@import '../../../assets/styles/variables.scss';
+
+
+* {
+  background-color: transparent;
+  // border: 1px solid red;
+}
+
+.error {
+  color: $color-red !important;
+  outline: none;
+  border-color: $color-red !important;
+  // background-color: $color-background-secondary;
+
+  .label-text {
+    background-color: $color-background-secondary !important;
+    color: $color-red !important;
+  }
+}
+
+;
+
+.input-container {
+  margin-top: 0.1rem;
+
+  // border: 1px solid rgb(132, 0, 255);
+  height: max-content;
+  min-width: 12rem;
+
+  label {
+    display: none;
+  }
+
+  .label-text {
+    // top: 150%;
+    transform: translate(1rem, 0.7rem);
+    // border: 1px solid rgb(0, 140, 255);
+    // border: 1px solid red;
+    width: max-content;
+    font-size: 1rem;
+    // color: rebeccapurple;
+    width: max-content;
+    padding: 0 2px;
+    background-color: transparent;
+    color: transparent;
+    //display: none;
+  }
+
+  input {
+    outline: none;
+    border: 2px solid $color-inputs-background;
+    background-color: $color-inputs-background;
+    border-radius: 15px;
+    padding-left: 1rem;
+    margin-top: 0.2rem;
+    height: 2.5rem;
+    // width: 25rem;
+    width: calc(100% - 1rem);
+    font-size: 1.1rem;
+  }
+
+  .message {
+    position: relative;
+    width: 100%;
+    height: 0.8rem;
+    margin: 0.2rem 0 0 0.5rem;
+    // margin-left: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+
+.input-container-touched {
+
+  .label-text {
+    background-color: $color-background-secondary;
+    color: $color-primary;
+  }
+
+  input {
+    background-color: $color-background-secondary !important;
+
+    border-color: $color-primary;
+  }
+}

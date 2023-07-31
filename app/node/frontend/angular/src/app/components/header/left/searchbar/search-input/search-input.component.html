@@ -1,0 +1,14 @@
+<div class="input-box">
+  <label for="search-text" class="search-input-label">search</label>
+  <input type="text" id="search-text" [(ngModel)]="value" (keyup)="clearTextActive()" placeholder="Search here..."
+    class="search-input">
+  <div class="clear-search-text">
+    <svg [class]="clearTextButtonClass" (click)="clearText()" width="20" height="20" viewBox="0 0 18 24" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M2.61364 4.45455L6.36364 10.5057H6.47727L10.2273 4.45455H12.3011L7.72727 11.7273L12.3011 19H10.2273L6.47727 13.0625H6.36364L2.61364 19H0.539773L5.22727 11.7273L0.539773 4.45455H2.61364Z"
+        fill="#6D6D6D" />
+    </svg>
+  </div>
+  <component-header-left-search-button></component-header-left-search-button>
+</div>

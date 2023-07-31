@@ -1,0 +1,28 @@
+@import '../../../../assets/styles/variables.scss';
+
+
+.head {
+  //border: 2px solid red;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+
+  .name {
+    font-weight: normal;
+    font-size: 2rem;
+    //border: 2px solid rgb(0, 255, 242);
+    padding-right: 0.5rem;
+    padding-left: 0;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .role {
+    background-color: $color-primary;
+    border-radius: 5rem;
+    font-size: 0.7rem;
+    color: $color-background-secondary;
+    padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+    width: max-content;
+  }
+}

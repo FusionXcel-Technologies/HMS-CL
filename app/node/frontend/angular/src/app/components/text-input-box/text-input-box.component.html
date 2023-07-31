@@ -1,0 +1,11 @@
+<div [class]="class + ' ' + messageType">
+  <label for="{{id}}" id="placeholder-textInput">
+    {{label}}
+  </label>
+  <div class="label-text" [class]="messageType">{{label}}</div>
+  <input [class]="messageType" [style.width]="width" id="{{id}}" type="{{type}}" [(ngModel)]="value"
+    [placeholder]="placeholder" (ngModelChange)="onValueChange($event)" [autocomplete]="'off'"
+    (mouseleave)="onMouseLeave()" aria-labelledby="placeholder-textInput">
+  <!-- <input type="hidden" name="has_error" value="{{has_error}}"> -->
+  <p class="message" [class]="messageType">{{message}}</p>
+</div>

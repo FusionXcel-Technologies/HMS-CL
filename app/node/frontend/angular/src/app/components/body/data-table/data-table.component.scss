@@ -1,0 +1,17 @@
+.container {
+  position: relative;
+  width: calc(100%);
+  height: calc(100% - 40px);
+  overflow-y: auto;
+
+  .info-row {
+    //border: 1px solid red;
+    height: min-content;
+
+    h2 {
+      position: relative;
+      //top: 50%;
+      transform: translateY(50%);
+    }
+  }
+}

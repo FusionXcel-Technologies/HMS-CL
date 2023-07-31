@@ -1,0 +1,17 @@
+  @import '../../../../../assets/styles/variables.scss';
+
+  .table-search {
+    width: max-content;
+    height: max-content;
+
+    input {
+      border: none;
+      outline: none;
+      border: 1px solid $color-borders-ash;
+      background-color: $color-inputs-background;
+      border-radius: 7px;
+      width: max-content;
+      padding: 0.4rem 0.5rem;
+      width: 8rem;
+    }
+  }

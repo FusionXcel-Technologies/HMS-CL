@@ -1,0 +1,22 @@
+<ng-container *ngIf="childs; else noChilds">
+  <div class="menu-item with-childs " (click)="openChilds()" [ngClass]="itemClass">
+    <div class="body">
+      <div class="name">{{name}}</div>
+      <svg width="40" height="41" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30.75 24.5L18.75 36.5L16.6 34.35L26.5 24.5L16.65 14.65L18.8 12.5L30.75 24.5Z" />
+      </svg>
+    </div>
+    <div class="childs">
+      <component-sidebar-menu-menu-item-child [name]="child.name" [link]="child.link" *ngFor="let child of childs">
+      </component-sidebar-menu-menu-item-child>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #noChilds>
+  <div class="menu-item" [ngClass]="itemClass" (click)="goToLink()">
+    <div class="body">
+      <div class="name">{{name}}</div>
+    </div>
+  </div>
+</ng-template>

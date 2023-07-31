@@ -1,0 +1,26 @@
+@import '../../../../../../assets/styles/variables.scss';
+
+.child {
+  padding: 0.3rem;
+  font-weight: 350;
+
+  &:hover {
+    background-color: rgba($color-text-headers-black, 0.3);
+    cursor: pointer;
+  }
+}
+
+.active {
+  background-color: $color-primary;
+  color: $color-background-secondary;
+
+  svg {
+    path {
+      fill: #FFF !important;
+    }
+  }
+
+  &:hover {
+    background-color: $color-primary;
+  }
+}

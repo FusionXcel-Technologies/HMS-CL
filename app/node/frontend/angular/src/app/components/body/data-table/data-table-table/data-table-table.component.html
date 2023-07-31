@@ -1,0 +1,77 @@
+<div class="table" #tableData (scroll)="onScroll()">
+  <!-- <ng-container *ngIf="table.data?.length +1 > 0; else elseBlock"> -->
+  <div class="header {{table.data?.length <= 0?'remove-border-bottom':''}}">
+    <div class="row" *ngIf="table.data?.length > 0">
+      <div class="table-search">
+        <label for="tableSearch" hidden>table search</label>
+        <input type="text" name="tableSearch" [(ngModel)]="table_data_find_text" title="tableSearch" placeholder="Find"
+          [autocomplete]="'off'" (ngModelChange)="findInTable()">
+        {{table.data?.length}}
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="add-item ">
+        <div class="cell" (click)="addItemModelActive()">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M52.5002 37.9166H37.9168V52.4999C37.9168 54.1041 36.6043 55.4166 35.0002 55.4166C33.396 55.4166 32.0835 54.1041 32.0835 52.4999V37.9166H17.5002C15.896 37.9166 14.5835 36.6041 14.5835 34.9999C14.5835 33.3958 15.896 32.0833 17.5002 32.0833H32.0835V17.4999C32.0835 15.8958 33.396 14.5833 35.0002 14.5833C36.6043 14.5833 37.9168 15.8958 37.9168 17.4999V32.0833H52.5002C54.1043 32.0833 55.4168 33.3958 55.4168 34.9999C55.4168 36.6041 54.1043 37.9166 52.5002 37.9166Z"
+              fill="#6D6D6D" />
+          </svg>
+        </div>
+      </div>
+
+      <div class="cell" *ngFor="let header_item of objectKeys(table.head)" [style.width]="header_item.width+'rem'"
+        [style.min-width]="header_item.width+'rem'">
+        <p *ngIf="table.data?.length > 0"> {{header_item.name}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="body {{table.data?.length <= 0?'no-data':''}}">
+    <div class="row"
+      *ngFor="let item of (table_touched?(table.data.length>0?table_display_data:table.data):table.data)">
+      <div class="cell" [style.width]="'calc(8rem)'">
+        <div class="oparations">
+          <!-- <div class="view" (click)="viewItemModelActive(item.id)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M5.5 23.5H10.5V14.75H3V21C3 22.375 4.125 23.5 5.5 23.5ZM11.75 23.5H24.25C25.625 23.5 26.75 22.375 26.75 21V14.75H11.75V23.5ZM3 8.5V13.5H26.75V8.5C26.75 7.125 25.625 6 24.25 6H5.5C4.125 6 3 7.125 3 8.5Z"
+                fill="#1550B4" />
+            </svg>
+
+          </div> -->
+          <div class="update" (click)="updateItemModelActive(item.id)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4 21.8156V26.5031H8.6875L22.5125 12.6781L17.825 7.99062L4 21.8156ZM26.1375 9.05312C26.625 8.56562 26.625 7.77812 26.1375 7.29062L23.2125 4.36562C22.725 3.87813 21.9375 3.87813 21.45 4.36562L19.1625 6.65312L23.85 11.3406L26.1375 9.05312Z"
+                fill="#FFA500" />
+            </svg>
+
+          </div>
+          <div class="delete" (click)="deleteItemModelActive(item.id)">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7.25 24C7.25 25.375 8.375 26.5 9.75 26.5H19.75C21.125 26.5 22.25 25.375 22.25 24V11.5C22.25 10.125 21.125 9 19.75 9H9.75C8.375 9 7.25 10.125 7.25 11.5V24ZM22.25 5.25H19.125L18.2375 4.3625C18.0125 4.1375 17.6875 4 17.3625 4H12.1375C11.8125 4 11.4875 4.1375 11.2625 4.3625L10.375 5.25H7.25C6.5625 5.25 6 5.8125 6 6.5C6 7.1875 6.5625 7.75 7.25 7.75H22.25C22.9375 7.75 23.5 7.1875 23.5 6.5C23.5 5.8125 22.9375 5.25 22.25 5.25Z"
+                fill="#FF0000" />
+            </svg>
+
+          </div>
+        </div>
+      </div>
+      <div class="cell" [style.width]="header_item.width+'rem'" [style.min-width]="header_item.width+'rem'"
+        *ngFor="let header_item of header_Keys">
+        <p>{{item[header_item.key]}}</p>
+      </div>
+    </div>
+  </div>
+  <!-- </ng-container>
+  <ng-template #elseBlock>
+    <img src="../../../../../assets/images/Infinity-1s-200px.gif" alt="" srcset="">
+  </ng-template> -->
+</div>
+<app-data-table-table-add-item-popup (refreshTable)="refreshTableFunc()" [cssClass]="add_item_clases"
+  [url]="url"></app-data-table-table-add-item-popup>
+<app-data-table-table-update-item-popup *ngIf="update_item_clases != ''" (refreshTable)="refreshTableFunc()"
+  [cssClass]="update_item_clases" [url]="url" [itemId]="update_item_id"></app-data-table-table-update-item-popup>
+<app-data-table-table-delete-item-popup (refreshTable)="refreshTableFunc()" [cssClass]="delete_item_clases" [url]="url"
+  [itemId]="delete_item_id"></app-data-table-table-delete-item-popup>

@@ -1,0 +1,42 @@
+@import '../../../../../assets/styles/variables.scss';
+
+.notificatiions {
+  margin-right: 1rem;
+
+  .notifications-list {
+    display: none;
+  }
+
+  .icon {
+    width: 3.2rem;
+    height: 3.2rem;
+    background-color: $color-background-primary;
+    border-radius: 50%;
+
+    svg {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .notifications-count {
+      position: relative;
+      top: calc(100% - 2.8rem);
+      left: 5%;
+      font-weight: normal;
+      // transform: translate(90%, 90%);
+      // background-color: $color-red;
+      color: $color-red;
+
+      // height: max-content;
+      // width: auto;
+      // padding: 0.3rem;
+      // border-radius: 50%;
+      text-align: center;
+      font-size: 1.5rem;
+      // border: 1px solid red;
+      z-index: 1;
+    }
+  }
+}

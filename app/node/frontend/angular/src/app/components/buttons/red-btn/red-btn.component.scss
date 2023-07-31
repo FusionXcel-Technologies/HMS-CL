@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/variables.scss';
+
+button {
+  padding: 0.6rem 2.5rem;
+  color: #fff;
+  background-color: $color-red;
+  border-radius: 15px;
+  border: 2px solid $color-red;
+  font-size: 1rem;
+  font-weight: bold;
+  // float: inline-end;
+  // margin-left: auto;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fff;
+    color: $color-red;
+  }
+}

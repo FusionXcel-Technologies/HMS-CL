@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="info-row">
+    <!-- <h2>{{convertToCamelCase(table.name)}}</h2> -->
+    <app-data-table-export [table]="table" *ngIf="table.data.length > 0"></app-data-table-export>
+  </div>
+  <app-data-table-table [table]="table" (refreshTableMain)="getTable()" [url]="url"></app-data-table-table>
+</div>

@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var cluster = require('node:cluster')
+const server = require('./server');
+var os = require('os')
+var numCPUs = os.cpus().length;
+
+
+
+if (cluster.isMaster) {
+  // Fork workers
+
+  for (var i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', function (worker, code, signal) {
+    console.log('Worker ' + worker.process.pid + ' died');
+
+    // Fork a new worker if a worker dies
+    console.log('starting new worker process');
+    cluster.fork();
+  });
+
+  cluster.schedulingPolicy = cluster.SCHED_RR;
+
+  server(8000, true)
+} else {
+  let port = Math.floor(Math.random() * 900);
+  port = 8000 + port;
+  while (port < 2000 || port > 65000) {
+    port = Math.floor(Math.random() * 90000);
+  }
+
+  server(port);
+}
+
+const readline = require('readline');
+
+function waitForExit() {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+
+  rl.question('Press any key to exit...', () => {
+    rl.close();
+    process.exit(0);
+  });
+}
+
+// Your application code here
+
+// waitForExit();

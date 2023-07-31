@@ -1,0 +1,38 @@
+@import '../../../../../../../assets/styles/variables.scss';
+
+
+.submit-btn {
+  background-color: $color-primary;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid $color-primary;
+  cursor: pointer;
+
+  svg {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  .svg-two {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-primary;
+    background-color: $color-inputs-background !important;
+    border-color: $color-primary;
+
+    .svg-two {
+      display: block;
+    }
+
+    .svg-one {
+      display: none;
+    }
+  }
+}

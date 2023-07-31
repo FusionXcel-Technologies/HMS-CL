@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Sign In</h1>
+  <form>
+
+    <component-text-input-box label="Contact Number" placeholder="Enter Contact Number" [id]="'contact_number'"
+      [(value)]="formData.contact_number" [type]="'tel'"
+      [message]="errors.contact_number?errors.contact_number.message:''"
+      [messageType]="errors.contact_number?'error':''" (disableEnableChange)="disableChange($event)">
+    </component-text-input-box>
+    <component-text-input-box label="Password" [type]="'password'" [id]="'password'" placeholder="Enter your Password"
+      [(value)]="formData.password" (disableEnableChange)="disableChange($event)"></component-text-input-box>
+
+    <div *ngIf="errors.common" class="error-message">
+      <p *ngFor="let error of errors.common">{{ error.message }}</p>
+    </div>
+    <div class="bottom-row">
+      <p>Don't Have an account <a routerLink="/auth/signup"><b>Sign Up Here</b></a></p>
+      <component-button-submit_btn class="button" [label]="'Sign In'" [type]="'submit'" [disabled]="button_disabled"
+        (click)="signIn()">
+      </component-button-submit_btn>
+    </div>
+
+    <!-- <button type="submit">Sign Up</button> -->
+  </form>
+</div>

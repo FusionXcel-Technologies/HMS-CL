@@ -1,0 +1,55 @@
+@import '../../../../../../assets/styles/variables.scss';
+
+* {
+  background-color: $color-inputs-background;
+}
+
+.input-box {
+  display: inline-flex;
+  height: 2rem;
+
+  padding: 0.5rem;
+
+  border-radius: 10rem;
+  background-color: $color-inputs-background;
+  align-items: center;
+
+  .search-input-label {
+    display: none;
+  }
+
+  .clear-search-text {
+
+    height: 2rem;
+    width: 2rem;
+    // border: 1px solid rgb(247, 0, 255);
+    text-align: end;
+
+    svg {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  .hide {
+    //border: 1px solid rgb(0, 183, 255);
+    display: none;
+    //  border: 1px solid red;
+  }
+
+  .search-input {
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 18rem;
+    padding-left: 0.7rem;
+    color: $color-text-headers-black;
+    // background-color: rebeccapurple;
+    font-size: 1.2rem;
+    //border: 1px solid red;
+  }
+
+
+}

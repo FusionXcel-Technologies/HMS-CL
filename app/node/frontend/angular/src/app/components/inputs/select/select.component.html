@@ -1,0 +1,25 @@
+<div [class]="class" *ngIf="values_list.length > 0" (mouseenter)="onMouseEnter(true)"
+  (mouseleave)="onMouseEnter(false)">
+  <label for="{{ id }}" id="placeholder-textInput">
+    {{ label }}
+  </label>
+  <div class="label-text">{{ label }}</div>
+  <div class="display-selected-values" *ngIf="display_value.length > 0">
+    <div class="display-value-selected" *ngFor="let displayValue of display_value">
+      {{ displayValue.slice(0, 50) }}
+      <div class="display-value-selected-close" (click)="removeSelectedItem(displayValue)">X</div>
+    </div>
+  </div>
+  <input [style.width]="width" id="{{ id }}" type="{{ type }}" [(ngModel)]="value" [placeholder]="placeholder"
+    (ngModelChange)="onValueChange($event)" [autocomplete]="'off'" (mouseleave)="onMouseLeave(true)"
+    (click)="viewSelect()" aria-labelledby="placeholder-textInput" [value]="value">
+  <div class="select {{ !select_list_view ? 'hide' : '' }}" *ngIf="display_values_list.length > 0">
+    <div class="values_list">
+      <div class="list_value {{ value.selected ? 'List_value_active' : '' }}" (click)="selectValue(value.id)"
+        *ngFor="let value of display_values_list">
+        {{ value.name }}
+      </div>
+    </div>
+  </div>
+  <p class="message" [class]="messageType">{{ message }}</p>
+</div>

@@ -1,0 +1,203 @@
+  @import '../../../../../assets/styles/variables.scss';
+
+  .table {
+    position: relative;
+    width: calc(100% - 2px);
+    height: 85%;
+    min-height: 40rem;
+    border: 1px solid $color-borders-ash;
+    border-radius: 10px;
+    background-color: white;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar-track {
+      margin: 0 10px !important;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .row {
+      position: relative;
+      display: inline-flex;
+      max-width: calc(100% - 5px);
+      height: 3rem;
+      width: max-content;
+      overflow-y: hidden;
+      margin-right: 0;
+
+      .cell {
+        align-items: center;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        height: min-content;
+        // border: 1px solid rgb(251, 0, 255);
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+
+
+        .oparations {
+          // border: 1px solid red;
+          // justify-content: space-evenly;
+          display: flex;
+          flex-direction: row;
+          height: 100%;
+          //width: calc(8rem + 10px);
+
+          .view {
+            &:hover {
+              background-color: $color-primary;
+
+              svg {
+                path {
+                  fill: white;
+                }
+              }
+            }
+          }
+
+          .update {
+            &:hover {
+              background-color: $color-orange;
+
+              svg {
+                path {
+                  fill: white;
+                }
+              }
+            }
+          }
+
+          .delete {
+            &:hover {
+              background-color: $color-red;
+
+              svg {
+                path {
+                  fill: white;
+                }
+              }
+            }
+          }
+
+          div {
+            // border: 1px solid rgb(1, 47, 255);
+            height: max-content;
+            width: 50%;
+            height: 100%;
+            padding: auto;
+
+            //  transform: translateY(-50%);
+
+
+            svg {
+              //  border: 1px solid green;
+              position: relative;
+              height: 1.3rem;
+              width: 1.3rem;
+            }
+          }
+        }
+
+        svg {
+          width: 2rem;
+          height: 2rem;
+          padding: 0.3rem;
+        }
+      }
+
+      .add-item {
+        width: 8rem;
+
+        .cell {
+          border: none;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          svg {
+            background-color: $color-primary;
+            border-radius: 50%;
+
+            path {
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+
+    .header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      font-weight: bold;
+      padding: 10px 1rem 0 1rem;
+      border-bottom: 1px solid $color-borders-ash;
+      width: max-content;
+      // justify-content: space-between;
+      display: flex;
+      flex-direction: column;
+      z-index: 2;
+
+      .table-search {
+        width: max-content;
+        height: max-content;
+
+        input {
+          border: none;
+          outline: none;
+          border: 1px solid $color-borders-ash;
+          background-color: $color-inputs-background;
+          border-radius: 7px;
+          width: max-content;
+          padding: 0.4rem 0.5rem;
+          width: 8rem;
+        }
+      }
+
+      .add-item {
+        cursor: pointer;
+      }
+
+      .cell {
+        //  font-size: large;
+        border-left: 1px solid $color-borders-ash ;
+      }
+
+
+    }
+
+    .remove-border-bottom {
+      border: none !important;
+    }
+
+    .no-data {
+      background-image: url('../../../../../assets/images/no\ data.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .body {
+      overflow-y: auto;
+      min-width: calc(100% - 2px);
+      min-height: 90%;
+      width: max-content;
+      display: flex;
+      flex-direction: column;
+
+
+      .row {
+        &:hover {
+          background-color: $color-inputs-background;
+          cursor: pointer;
+        }
+      }
+
+    }
+  }

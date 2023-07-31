@@ -1,0 +1,22 @@
+    @import '../../../../../assets/styles/variables.scss';
+
+    .export-options {
+      position: relative;
+
+      .items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      width: min-content;
+      padding: 0.4rem 0.5rem;
+      left: calc(100% - 44px);
+      justify-self: end;
+      margin-bottom: 1rem;
+      border: 1px solid $color-borders-ash;
+      background-color: $color-inputs-background;
+      border-radius: 8px;
+    }

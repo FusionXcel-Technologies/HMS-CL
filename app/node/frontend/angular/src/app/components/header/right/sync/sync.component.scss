@@ -1,0 +1,35 @@
+@import '../../../../../assets/styles/variables.scss';
+
+.status {
+  display: inline-flex;
+  height: max-content;
+  width: 26rem;
+  font-size: 1.3rem;
+  text-align: right;
+  margin-right: 1.5rem;
+  align-items: center;
+  color: $color-text-headers-black;
+  justify-content: right;
+  //border: 1px solid green;
+
+  svg {
+    margin: 0.3rem;
+    display: none;
+  }
+}
+
+.success {
+  color: $color-green;
+
+  svg.one {
+    display: block;
+  }
+}
+
+.warn {
+  color: $color-orange;
+
+  svg.two {
+    display: block;
+  }
+}
